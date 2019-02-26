@@ -29,6 +29,7 @@ public class ShapeSorterTest
 		sorter.addShape(b);
 		sorter.addShape(c);
 		sorter.addShape(d);
+		//tests for correct order of shapes
 
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(0), a);
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(1), b);
