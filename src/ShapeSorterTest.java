@@ -29,7 +29,6 @@ public class ShapeSorterTest
 		sorter.addShape(b);
 		sorter.addShape(c);
 		sorter.addShape(d);
-		//tests for correct order of shapes
 
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(0), a);
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(1), b);
@@ -55,7 +54,8 @@ public class ShapeSorterTest
 		sorter.addShape(b);
 		sorter.addShape(d);
 		sorter.addShape(a);
-
+		
+		sorter.sortShapes();
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(0), c);
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(1), b);
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(2), d);
@@ -68,6 +68,7 @@ public class ShapeSorterTest
 
 		sorter1.addShape(g);
 		sorter1.addShape(f);
+		 sorter1.sortShapes();
 		Assert.assertEquals("Shapes added incorrectly...", sorter1.shapes.get(0), g);
 		Assert.assertEquals("Shapes added incorrectly...", sorter1.shapes.get(1), f);
 
@@ -91,6 +92,8 @@ public class ShapeSorterTest
 		sorter.addShape(b);
 		sorter.addShape(d);
 		sorter.addShape(a);
+		
+		sorter.sortShapes(new ShapeAreaComparator());
 
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(0), c);
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(1), b);
@@ -112,14 +115,16 @@ public class ShapeSorterTest
 		Shape c = new Square("test3", 2);
 		Shape d = new Circle("test4", 1.5);
 
-		sorter.addShape(d);
 		sorter.addShape(c);
 		sorter.addShape(b);
+		sorter.addShape(d);
 		sorter.addShape(a);
+		
+		sorter.sortShapes(new ShapePerimeterComparator());
 
-		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(0), d);
-		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(1), c);
-		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(2), b);
+		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(0), c);
+		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(1), b);
+		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(2),d );
 		Assert.assertEquals("Shapes added incorrectly...", sorter.shapes.get(3), a);
 
 	}
